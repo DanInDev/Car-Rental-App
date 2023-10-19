@@ -12,7 +12,7 @@ export default function TabNav(){
 
     return (
         <NavigationContainer>
-            <Tab.Navigator initialRouteName='Home'>
+            <Tab.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
                 <Tab.Screen name="Home" component={CarListings} />
                 <Tab.Screen name="Account" component={Account} />
                 <Tab.Screen name="Settings" component={Settings} />
