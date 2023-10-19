@@ -11,12 +11,11 @@ export default function TabNav(){
     const Tab = createBottomTabNavigator();
 
     return (
-        <NavigationContainer>
-            <Tab.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
-                <Tab.Screen name="Home" component={CarListings} />
-                <Tab.Screen name="Account" component={Account} />
-                <Tab.Screen name="Settings" component={Settings} />
-            </Tab.Navigator>
-        </NavigationContainer>
+        //No navigationcontainer, as it is already in the StackNav
+        <Tab.Navigator initialRouteName='Car Listings' screenOptions={{ headerShown: false }}>
+            <Tab.Screen name="Account" component={Account} />
+            <Tab.Screen name="Car Listings" component={CarListings} />
+            <Tab.Screen name="Settings" component={Settings} />
+        </Tab.Navigator>
     );
 }
