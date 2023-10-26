@@ -1,6 +1,7 @@
 import {Button, FlatList, Text, View} from 'react-native';
-import { GlobalStyles } from '../../constants/GlobalStyles';
-import { Header } from '../../constants/Header';
+import { GlobalStyles } from '../../../constants/GlobalStyles';
+import { Header } from '../../../constants/Header';
+import ApiCall from './ApiCall';
 
 
 export default function CarListings() {
@@ -10,7 +11,14 @@ export default function CarListings() {
 
         <View style={GlobalStyles.container}>
           {/*Flatlist of JSON data*/}
+
           <Button title="Search" onPress={() => console.log("search")} />
+
+            <View>
+              <ApiCall/>
+            </View>
+          
+
         </View>
 
       </View>

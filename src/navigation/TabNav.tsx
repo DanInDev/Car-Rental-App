@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import CarListings from '../components/homescreen/CarListings';
+import CarListings from '../components/homescreen/carlisting/CarListings';
 import Account from '../components/homescreen/Account';
 import Settings from '../components/homescreen/Settings';
 
