@@ -1,14 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View, Alert } from 'react-native';
+import { Button, StyleSheet, Text, View, Alert, TextInput } from 'react-native';
 import { GlobalStyles } from '../../constants/GlobalStyles';
-
+import { useNavigation } from '@react-navigation/native';
 
 export default function CreateAccount() {
-    return (
-      <View style={GlobalStyles.container}>
+  const navigation = useNavigation();
+    
+  return (
+    <View style={GlobalStyles.container}>
+      <Text style={{fontWeight: 'bold'}}>Create Account</Text>
+        
+        <View style={GlobalStyles.container}>
+          <Text style={{fontWeight: 'bold'}}>Email</Text>
+            <TextInput style={GlobalStyles.input}/>
+            <Text style={{fontWeight: 'bold'}}>Username</Text>
+            <TextInput style={GlobalStyles.input}/>
+            <Text style={{fontWeight: 'bold'}}>Password</Text>
+            <TextInput secureTextEntry={true} style={GlobalStyles.input}/>
+            <Text style={{fontWeight: 'bold'}}>Repeat password</Text>
+            <TextInput secureTextEntry={true} style={GlobalStyles.input}/>
 
-        <Text style={{fontWeight: 'bold', fontSize: 40}}>Create Account</Text>
-
-      </View>
-    );
+            <Button title="Login" onPress={() => navigation.navigate("TabNav")} />
+          </View>
+    </View>
+  );
   }
