@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import {Button, FlatList, StyleSheet, Text, View} from 'react-native';
+import {Button, FlatList, Text, View} from 'react-native';
 import { GlobalStyles } from '../../constants/GlobalStyles';
 import { Header } from '../../constants/Header';
 
