@@ -10,7 +10,13 @@ export default function Account() {
         <Text style={Header.title}>Account</Text>
 
         <View style={GlobalStyles.container}>
+          {/*Blank profile picture iocn*/}
+          <Text>First name</Text>
+          <Text>Last name</Text>
+          <Text>View booking history</Text>
+          <Text>Payments options</Text>
 
+          <Button title="Terminate account" onPress={() => console.log("account terminated")} />
         </View>
 
       </View>

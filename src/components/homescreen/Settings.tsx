@@ -10,7 +10,10 @@ export default function Settings() {
         <Text style={Header.title}>Settings</Text>
 
         <View style={GlobalStyles.container}>
-          
+          {/*Make these into buttons*/}
+          <Text>Switch theme</Text> 
+          <Text>Notification settings</Text>  
+          <Text>About</Text>
         </View>
 
       </View>

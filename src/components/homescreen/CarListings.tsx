@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import {StyleSheet, Text, View} from 'react-native';
+import {Button, FlatList, StyleSheet, Text, View} from 'react-native';
 import { GlobalStyles } from '../../constants/GlobalStyles';
 import { Header } from '../../constants/Header';
 
@@ -10,7 +10,8 @@ export default function CarListings() {
         <Text style={Header.title}>Car Listings</Text>
 
         <View style={GlobalStyles.container}>
-          
+          {/*Flatlist of JSON data*/}
+          <Button title="Search" onPress={() => console.log("search")} />
         </View>
 
       </View>
