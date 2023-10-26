@@ -13,9 +13,9 @@ export default function TabNav(){
     return (
         //No navigationcontainer, as it is already in the StackNav
         <Tab.Navigator initialRouteName='Car Listings' screenOptions={{ headerShown: false }}>
-            <Tab.Screen name="Account" component={Account} />
-            <Tab.Screen name="Car Listings" component={CarListings} />
             <Tab.Screen name="Settings" component={Settings} />
+            <Tab.Screen name="Car Listings" component={CarListings} />
+            <Tab.Screen name="Account" component={Account} />
         </Tab.Navigator>
     );
 }

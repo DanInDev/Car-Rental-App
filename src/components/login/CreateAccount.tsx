@@ -2,13 +2,14 @@ import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View, Alert, TextInput } from 'react-native';
 import { GlobalStyles } from '../../constants/GlobalStyles';
 import { useNavigation } from '@react-navigation/native';
+import { Header } from '../../constants/Header';
 
 export default function CreateAccount() {
   const navigation = useNavigation();
     
   return (
-    <View style={GlobalStyles.container}>
-      <Text style={{fontWeight: 'bold'}}>Create Account</Text>
+    <View style={Header.header}>
+      <Text style={Header.title}>Create Account</Text>
         
         <View style={GlobalStyles.container}>
           <Text style={{fontWeight: 'bold'}}>Email</Text>
@@ -21,7 +22,7 @@ export default function CreateAccount() {
             <TextInput secureTextEntry={true} style={GlobalStyles.input}/>
 
             <Button title="Login" onPress={() => navigation.navigate("TabNav")} />
-          </View>
+        </View>
     </View>
   );
   }

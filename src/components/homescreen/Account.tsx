@@ -1,13 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View, Alert } from 'react-native';
 import { GlobalStyles } from '../../constants/GlobalStyles';
+import { Header } from '../../constants/Header';
 
 
 export default function Account() {
     return (
-      <View style={GlobalStyles.container}>
+      <View style={Header.header}>
+        <Text style={Header.title}>Account</Text>
 
-        <Text style={{fontWeight: 'bold', fontSize: 40}}>Account</Text>
+        <View style={GlobalStyles.container}>
+
+        </View>
 
       </View>
     );
