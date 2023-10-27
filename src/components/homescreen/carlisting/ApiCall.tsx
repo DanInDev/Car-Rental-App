@@ -2,9 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, View, FlatList, Text, Modal, Pressable } from "react-native";
 import { GlobalStyles } from "../../../constants/GlobalStyles";
+import {useNavigation} from "@react-navigation/native";
 
 export default function ApiCall(){
-
+    const navigation = useNavigation();
     interface Car{
         make : String;
         model: String;
@@ -81,6 +82,7 @@ export default function ApiCall(){
                         <Text>Price per day: {modelContent.price_per_day} </Text>
                         <Text>{modelContent.location}</Text>
                         <Text>Available: {modelContent.available ? 'Yes' : 'No'}</Text>
+                        <Button title="Rent this shit" onPress={()=> navigation.navigate("RentCar", {item : modelContent})}/>
                     </View>
                     }
                     {

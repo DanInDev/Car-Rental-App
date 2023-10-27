@@ -4,6 +4,7 @@ import LoginPage from "../components/login/LoginPage";
 import CreateAccount from "../components/login/CreateAccount";
 import SplashScreen from "../components/SplashScreen";
 import TabNav from "./TabNav";
+import RentCar from "../components/homescreen/carlisting/RentCar"
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ export default function StackNav() {
             <Stack.Screen name="LoginPage" component={LoginPage}/>
             <Stack.Screen name="CreateAccount" component={CreateAccount}/>
             <Stack.Screen name="TabNav" component={TabNav}/>
+            <Stack.Screen name="RentCar" component={RentCar}/>
         </Stack.Navigator>
     </NavigationContainer>
     );
