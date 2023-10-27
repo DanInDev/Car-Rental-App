@@ -17,6 +17,17 @@ export default function ApiCall(){
 
     const [car, setCar] = useState<Car[] | undefined>();
     const [error, setError] = useState(false);
+    const [modelContent, setModalContent] = useState<Car | undefined>();
+    const[modalVisible, setModalVisible] = useState(false);
+
+    const openModal = (content : Car) => {
+        setModalContent(content);
+        setModalVisible(true);
+      };
+    
+      const closeModal = () => {
+        setModalVisible(false);
+      };
 
     useEffect(() => {
         //API backend courtsey of Jakob - jamoe20
@@ -35,7 +46,7 @@ export default function ApiCall(){
             <Text>{item.model}</Text>
             <Text>Price: {item.price_per_day}</Text>
             <Text>Available: {item.available ? 'Yes' : 'No'}</Text>
-            <Button title="Details" onPress={() => console.log("Details")} />
+            <Button title="Details" onPress={() => openModal(item)} />
         </View>
     )
 
@@ -54,6 +65,29 @@ export default function ApiCall(){
                 error && 
                 <Text>The request failed</Text>
             }
+            <Modal
+            animationType="slide"
+            visible={modalVisible}
+            onRequestClose={closeModal}
+            transparent={true}
+            >
+                <View>
+                    { modelContent && 
+                    <View style={{backgroundColor: "white"}}>
+                        <Text>{modelContent.make}</Text>
+                        <Text>{modelContent.model}</Text>
+                        <Text>{modelContent.year}</Text>
+                        <Text>{modelContent.car_type}</Text>
+                        <Text>Price per day: {modelContent.price_per_day} </Text>
+                        <Text>{modelContent.location}</Text>
+                        <Text>Available: {modelContent.available ? 'Yes' : 'No'}</Text>
+                    </View>
+                    }
+                    {
+                    !modelContent && <Text>Failed to load</Text>
+                    }
+                </View>
+            </Modal>
         </View>
     );
 }
