@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { View, FlatList, Text } from "react-native";
+import { Button, View, FlatList, Text, Modal, Pressable } from "react-native";
 import { GlobalStyles } from "../../../constants/GlobalStyles";
 
 export default function ApiCall(){
@@ -32,8 +32,15 @@ export default function ApiCall(){
     const item = ({item} : {item : Car}) => (
         <View>
             <Text>{item.make}</Text>
+            <Text>{item.model}</Text>
+            <Text>Price: {item.price_per_day}</Text>
+            <Text>Available: {item.available ? 'Yes' : 'No'}</Text>
+            <Button title="Details" onPress={() => console.log("Details")} />
         </View>
     )
+
+
+
 
     return (
         <View style={GlobalStyles.container}>
