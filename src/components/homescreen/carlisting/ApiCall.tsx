@@ -141,7 +141,7 @@ const carListingSheets = StyleSheet.create({
     },
     listingsList: {
         paddingVertical: 10,
-        paddingHorizontal: 20,
+        paddingHorizontal: 10,
         justifyContent: "space-evenly",
         gap: 15
     },
