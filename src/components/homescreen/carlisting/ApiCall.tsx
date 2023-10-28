@@ -108,10 +108,12 @@ export default function ApiCall(){
                             <View style={carListingSheets.innerModal}>
                                 <Text style={GlobalStyles.carTitle}>{modelContent.year} {modelContent.make} {modelContent.model}</Text>
                                 <Image style={GlobalStyles.imageFormatting} source={require('../../../../assets/lada.jpg')}/>
+                                
                                 <Text>Car type: {modelContent.car_type}</Text>
                                 <Text>Price per day: {modelContent.price_per_day}€</Text>
                                 <Text>Currently located in: {modelContent.location}</Text>
                                 <Text style={{paddingBottom: 6}}>Available: {modelContent.available ? 'Yes' : 'No'}</Text>
+                               
                                 <Button title="Leave a review" onPress={()=> reviewHandler(modelContent)}/>
                                 <Text></Text>{/*Spacing*/}
                                 <Button title="Rent this LORT" onPress={()=> rentalHandler(modelContent)}/>
