@@ -34,7 +34,8 @@ export const GlobalStyles = StyleSheet.create({
 
   imageFormatting:{
     width: '100%',
-    borderRadius: 12
+    borderRadius: 12,
+    marginTop: 6
   },
 
   carTitle:{

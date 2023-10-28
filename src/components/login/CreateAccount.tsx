@@ -20,7 +20,7 @@ export default function CreateAccount() {
             <Text style={{fontWeight: 'bold'}}>Repeat password</Text>
             <TextInput secureTextEntry={true} style={GlobalStyles.input}/>
 
-            <Button title="Login" onPress={() => navigation.navigate("TabNav")} />
+            <Button title="Create Account" onPress={() => navigation.navigate("TabNav")} />
         </View>
     </View>
   );

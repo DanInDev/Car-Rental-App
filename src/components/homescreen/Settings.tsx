@@ -19,7 +19,8 @@ export default function Settings() {
           <TouchableOpacity 
             onPress={() => Alert.alert(
               "Notification settings",
-              "There are no notifications")}
+              "There are no notifications implemented in this app, " + 
+              "thus there are none to disable or enable.")}
             style={settingsStyle.clickableSetting}>
             <Text style={settingsStyle.settingsText}>Notification Settings</Text>
           </TouchableOpacity>  
