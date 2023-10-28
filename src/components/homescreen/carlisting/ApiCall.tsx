@@ -66,7 +66,10 @@ export default function ApiCall(){
         <TouchableOpacity style={carListingSheets.listingsItems} onPress={() => openModal(item)}>
             <Image style={GlobalStyles.imageFormatting} source={require('../../../../assets/lada.jpg')}/>
             <Text style={GlobalStyles.carTitle}>{item.year} {item.make} {item.model}</Text>
-            <Text>Location: {item.location}                           Available: {item.available ? 'Yes' : 'No'}</Text>
+            <View style={{justifyContent: "space-between", flexDirection:"row",}}>
+                <Text>Location: {item.location}</Text>
+                <Text>Available: {item.available ? 'Yes' : 'No'}</Text>
+            </View>
             <Text>Price per day: {item.price_per_day}€</Text>
         </TouchableOpacity>
     )
@@ -149,6 +152,7 @@ const carListingSheets = StyleSheet.create({
         overflow: "hidden",
         elevation: 4,
         shadowColor: 'black',
+        paddingHorizontal: 4
     },
     outerModal: {
         flex: 1,
