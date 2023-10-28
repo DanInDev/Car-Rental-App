@@ -32,5 +32,8 @@ export const GlobalStyles = StyleSheet.create({
     fontSize: 16,
   },
 
+  imageFormatting:{
+    width: '100%',
+  },
   
 });
