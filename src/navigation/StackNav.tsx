@@ -6,6 +6,7 @@ import SplashScreen from "../components/SplashScreen";
 import TabNav from "./TabNav";
 import RentCar from "../components/homescreen/carlisting/RentCar"
 import ReviewCar from "../components/homescreen/carlisting/ReviewCar"; 
+import Account from "../components/homescreen/Account";
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,7 @@ export default function StackNav() {
             <Stack.Screen name="TabNav" component={TabNav}/>
             <Stack.Screen name="RentCar" component={RentCar}/>
             <Stack.Screen name="ReviewCar" component={ReviewCar}/>
+            <Stack.Screen name="Account" component={Account}/>
         </Stack.Navigator>
     </NavigationContainer>
     );

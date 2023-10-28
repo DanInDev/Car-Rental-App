@@ -2,9 +2,12 @@ import React from "react";
 import {Button, Text, View, Image, TextInput} from "react-native";
 import { GlobalStyles } from "../../../constants/GlobalStyles";
 import { Header } from "../../../constants/Header";
+import { useNavigation } from "@react-navigation/native";
 
 export default function RentCar({route}){
 const {item} = route.params;
+
+const navigation = useNavigation();
 
     return (
         <View style={Header.header}>
@@ -26,7 +29,8 @@ const {item} = route.params;
 
                 
                 <Text>{"\n"}Click the button below to confirm your car rental:</Text>
-                <Button title="Confirm Car Rental!" onPress={()=> console.log("Patment reviced")}/>
+                {/*Make this navigation redirect to the "View Rental History" page, when it is made*/}
+                <Button title="Confirm Car Rental!" onPress={()=> navigation.navigate("Account")}/>
             </View>
         </View>
         
