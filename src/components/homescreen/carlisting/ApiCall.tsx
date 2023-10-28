@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, View, FlatList, Text, Modal, StyleSheet, TouchableOpacity } from "react-native";
+import { Button, View, FlatList, Text, Modal, StyleSheet, TouchableOpacity, Image} from "react-native";
 import { GlobalStyles } from "../../../constants/GlobalStyles";
 import {useNavigation} from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -63,13 +63,12 @@ export default function ApiCall(){
     }, [])
 
     const item = ({item} : {item : Car}) => (
-        <View style={carListingSheets.listingsItems}>
-            <Text>{item.make}</Text>
-            <Text>{item.model}</Text>
-            <Text>Price: {item.price_per_day}</Text>
-            <Text>Available: {item.available ? 'Yes' : 'No'}</Text>
-            <Button title="Details" onPress={() => openModal(item)} />
-        </View>
+        <TouchableOpacity style={carListingSheets.listingsItems} onPress={() => openModal(item)}>
+            <Image style={GlobalStyles.imageFormatting} source={require('../../../../assets/lada.jpg')}/>
+            <Text style={GlobalStyles.carTitle}>{item.year} {item.make} {item.model}</Text>
+            <Text>Location: {item.location}                           Available: {item.available ? 'Yes' : 'No'}</Text>
+            <Text>Price per day: {item.price_per_day}€</Text>
+        </TouchableOpacity>
     )
 
     const rentalHandler = (content : Car) => (
@@ -107,13 +106,12 @@ export default function ApiCall(){
                     <TouchableOpacity onPress={() => closeModal()}>
                         <View>
                             <View style={carListingSheets.innerModal}>
-                                <Text>{modelContent.make}</Text>
-                                <Text>{modelContent.model}</Text>
-                                <Text>{modelContent.year}</Text>
-                                <Text>{modelContent.car_type}</Text>
-                                <Text>Price per day: {modelContent.price_per_day} </Text>
-                                <Text>{modelContent.location}</Text>
-                                <Text>Available: {modelContent.available ? 'Yes' : 'No'}</Text>
+                                <Text style={GlobalStyles.carTitle}>{modelContent.year} {modelContent.make} {modelContent.model}</Text>
+                                <Image style={GlobalStyles.imageFormatting} source={require('../../../../assets/lada.jpg')}/>
+                                <Text>Car type: {modelContent.car_type}</Text>
+                                <Text>Price per day: {modelContent.price_per_day}€</Text>
+                                <Text>Currently located in: {modelContent.location}</Text>
+                                <Text style={{paddingBottom: 6}}>Available: {modelContent.available ? 'Yes' : 'No'}</Text>
                                 <Button title="Leave a review" onPress={()=> reviewHandler(modelContent)}/>
                                 <Button title="Rent this LORT" onPress={()=> rentalHandler(modelContent)}/>
                             </View>
@@ -147,20 +145,20 @@ const carListingSheets = StyleSheet.create({
         borderColor: "rgba(0,0,0,0.0)",
         overflow: "hidden",
         elevation: 4,
-        shadowColor: 'black'
-    },
-    innerModal: {
-        alignItems: 'center',
-        backgroundColor: 'white',
-        borderRadius: 20,
-        padding: 30,
-        elevation: 50,
-        shadowColor: 'black'
+        shadowColor: 'black',
     },
     outerModal: {
         flex: 1,
-        alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'rgba(0,0,0,0.5)'
-    }
+    },
+    innerModal: {
+        alignItems: 'center',
+        marginHorizontal: 30,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        padding: 10,
+        elevation: 50,
+        shadowColor: 'black'
+    },
 })
