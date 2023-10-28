@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, View, FlatList, Text, Modal, StyleSheet } from "react-native";
+import { Button, View, FlatList, Text, Modal, StyleSheet, TouchableOpacity } from "react-native";
 import { GlobalStyles } from "../../../constants/GlobalStyles";
 import {useNavigation} from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -99,16 +99,21 @@ export default function ApiCall(){
             >
                 <View style={carListingSheets.outerModal}>
                     { modelContent && 
-                    <View style={carListingSheets.innerModal}>
-                        <Text>{modelContent.make}</Text>
-                        <Text>{modelContent.model}</Text>
-                        <Text>{modelContent.year}</Text>
-                        <Text>{modelContent.car_type}</Text>
-                        <Text>Price per day: {modelContent.price_per_day} </Text>
-                        <Text>{modelContent.location}</Text>
-                        <Text>Available: {modelContent.available ? 'Yes' : 'No'}</Text>
-                        <Button title="Rent this shit" onPress={()=> rentalHandler(modelContent)}/>
-                    </View>
+                    <TouchableOpacity onPress={() => closeModal()}>
+                        <View>
+                            <View style={carListingSheets.innerModal}>
+                                <Text>{modelContent.make}</Text>
+                                <Text>{modelContent.model}</Text>
+                                <Text>{modelContent.year}</Text>
+                                <Text>{modelContent.car_type}</Text>
+                                <Text>Price per day: {modelContent.price_per_day} </Text>
+                                <Text>{modelContent.location}</Text>
+                                <Text>Available: {modelContent.available ? 'Yes' : 'No'}</Text>
+                                <Button title="Rent this shit" onPress={()=> rentalHandler(modelContent)}/>
+                            </View>
+                        </View>
+                    </TouchableOpacity>
+                    
                     }
                     {
                     !modelContent && <Text>Failed to load</Text>
@@ -131,17 +136,20 @@ const carListingSheets = StyleSheet.create({
         gap: 15
     },
     listingsItems:{
-        backgroundColor: '#FAF9F6',
-        borderWidth: 2,
-        borderTopLeftRadius: 10,
-        borderBottomRightRadius: 10,
-        borderColor: "rgba(0,0,0,0.8)",
-        overflow: "hidden"
+        borderWidth: 10,
+        borderRadius: 4,
+        borderColor: "rgba(0,0,0,0.0)",
+        overflow: "hidden",
+        elevation: 4,
+        shadowColor: 'black'
     },
     innerModal: {
         alignItems: 'center',
         backgroundColor: 'white',
-        padding: 30
+        borderRadius: 20,
+        padding: 30,
+        elevation: 50,
+        shadowColor: 'black'
     },
     outerModal: {
         flex: 1,
