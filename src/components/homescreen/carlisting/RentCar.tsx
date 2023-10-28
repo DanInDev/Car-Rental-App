@@ -1,11 +1,12 @@
 import React from "react";
 import {Button, Text, View} from "react-native";
+import { GlobalStyles } from "../../../constants/GlobalStyles";
 
 export default function ApiCall({route}){
 const {item} = route.params;
 
     return (
-        <View>
+        <View style={GlobalStyles.container}>
             {/* still needs reviews, options for pickup date and how long you wanna rent it for*/}
             <Text>{item.make}</Text>
             <Text>{item.model}</Text>

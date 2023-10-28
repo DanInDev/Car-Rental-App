@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, View, FlatList, Text, Modal, Pressable } from "react-native";
+import { Button, View, FlatList, Text, Modal, StyleSheet } from "react-native";
 import { GlobalStyles } from "../../../constants/GlobalStyles";
 import {useNavigation} from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function ApiCall(){
     const navigation = useNavigation();
@@ -30,19 +31,39 @@ export default function ApiCall(){
         setModalVisible(false);
       };
 
+    const getData = async () => {
+        let data = await AsyncStorage.getItem('cars')
+        if (data !== null) {
+            return JSON.parse(data)
+        }
+        else {
+            console.log("no data found")
+            throw "NoData"
+        }
+    }
+
     useEffect(() => {
-        //API backend courtsey of Jakob - jamoe20
-        axios.get("https://car-rentals.ladegaardmoeller.dk/cars")
-            .then(res => {
-                console.log(res.data)
-                setCar(res.data)
-                setError(false)
-            })
-            .catch(res => setError(true))
+        getData().then(data => {
+            console.log("Get cars from storage")
+            setCar(data)
+        }).catch(error => {
+            if (error = "NoData"){
+                console.log("Getting cars from API")
+                //API backend courtsey of Jakob - jamoe20
+                axios.get("https://car-rentals.ladegaardmoeller.dk/cars")
+                .then(res => {
+                    console.log(res.data)
+                    setCar(res.data)
+                    AsyncStorage.setItem("cars", JSON.stringify(res.data))
+                        .catch(error => console.log(error))
+                    setError(false)
+                })
+                .catch(res => setError(true))
+            }})
     }, [])
 
     const item = ({item} : {item : Car}) => (
-        <View>
+        <View style={carListingSheets.listingsItems}>
             <Text>{item.make}</Text>
             <Text>{item.model}</Text>
             <Text>Price: {item.price_per_day}</Text>
@@ -58,9 +79,10 @@ export default function ApiCall(){
 
 
     return (
-        <View style={GlobalStyles.container}>
+        <View style={carListingSheets.listingsPage}>
             { !error &&
                 <FlatList
+                    contentContainerStyle={carListingSheets.listingsList}
                     data={car}
                     renderItem={item}
                 />
@@ -75,9 +97,9 @@ export default function ApiCall(){
             onRequestClose={closeModal}
             transparent={true}
             >
-                <View>
+                <View style={carListingSheets.outerModal}>
                     { modelContent && 
-                    <View style={{backgroundColor: "white"}}>
+                    <View style={carListingSheets.innerModal}>
                         <Text>{modelContent.make}</Text>
                         <Text>{modelContent.model}</Text>
                         <Text>{modelContent.year}</Text>
@@ -96,3 +118,35 @@ export default function ApiCall(){
         </View>
     );
 }
+
+const carListingSheets = StyleSheet.create({
+    listingsPage: {
+        flex: 1,
+        backgroundColor: 'white',
+    },
+    listingsList: {
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        justifyContent: "space-evenly",
+        gap: 15
+    },
+    listingsItems:{
+        backgroundColor: '#FAF9F6',
+        borderWidth: 2,
+        borderTopLeftRadius: 10,
+        borderBottomRightRadius: 10,
+        borderColor: "rgba(0,0,0,0.8)",
+        overflow: "hidden"
+    },
+    innerModal: {
+        alignItems: 'center',
+        backgroundColor: 'white',
+        padding: 30
+    },
+    outerModal: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgba(0,0,0,0.5)'
+    }
+})
