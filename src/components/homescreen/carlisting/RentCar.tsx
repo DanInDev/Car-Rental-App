@@ -13,9 +13,10 @@ const {item} = route.params;
             <View style={GlobalStyles.rentalContainer}>
                 <Text style={GlobalStyles.carTitle}>{item.year} {item.make} {item.model}</Text>
                 <Image style={GlobalStyles.imageFormatting} source={require('../../../../assets/lada.jpg')}/>
-                <Text>{item.model}</Text>
-                <Text>{JSON.stringify(item.year)}</Text>
-                <Text>{item.car_type}</Text>
+
+
+                
+
                 <Text>{JSON.stringify(item.price_per_day)}</Text>
                 <Text>{item.location}</Text>
                 <Text>Available: {item.available ? 'Yes' : 'No'}</Text>
