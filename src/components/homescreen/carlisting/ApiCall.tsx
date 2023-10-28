@@ -113,6 +113,7 @@ export default function ApiCall(){
                                 <Text>Currently located in: {modelContent.location}</Text>
                                 <Text style={{paddingBottom: 6}}>Available: {modelContent.available ? 'Yes' : 'No'}</Text>
                                 <Button title="Leave a review" onPress={()=> reviewHandler(modelContent)}/>
+                                <Text></Text>{/*Spacing*/}
                                 <Button title="Rent this LORT" onPress={()=> rentalHandler(modelContent)}/>
                             </View>
                         </View>

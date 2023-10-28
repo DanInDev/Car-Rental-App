@@ -50,4 +50,12 @@ export const GlobalStyles = StyleSheet.create({
     padding: 15
   },
 
+  listingsInput: {
+    borderWidth: 1,
+    borderColor: '#777',
+    paddingLeft: 6,
+    width: '100%',
+    marginVertical: 4
+}
+
 });

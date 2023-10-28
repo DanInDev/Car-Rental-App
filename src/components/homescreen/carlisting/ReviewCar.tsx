@@ -33,12 +33,12 @@ const {item} = route.params;
                 
                 <View style={reviewStyleSheet.postReviewContainer}>
                     <Text>Leave your own review below:</Text>
-                    <TextInput placeholder={'Review Title'} style={reviewStyleSheet.input}/>
+                    <TextInput placeholder={'Review Title'} style={reviewStyleSheet.listingsInput}/>
                     <TextInput 
                         multiline={true}
                         numberOfLines={4}
                         placeholder={'Review'}
-                        style={reviewStyleSheet.input}/>
+                        style={GlobalStyles.listingsInput}/>
                     <Button title="Post review!" onPress={()=> console.log("Review submitted")}/>
                 </View>
                 
@@ -71,10 +71,5 @@ const reviewStyleSheet = StyleSheet.create({
         display: 'flex',
         alignItems: "flex-start",
     },
-    input: {
-        borderWidth: 1,
-        borderColor: '#777',
-        width: '100%',
-        marginVertical: 4
-    }
+    
 })
