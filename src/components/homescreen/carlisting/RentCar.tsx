@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Text, View} from "react-native";
+import {Button, Text, View, Image} from "react-native";
 import { GlobalStyles } from "../../../constants/GlobalStyles";
 import { Header } from "../../../constants/Header";
 
@@ -8,11 +8,11 @@ const {item} = route.params;
 
     return (
         <View style={Header.header}>
-            <Text style={Header.title}>Finalize Rent</Text>
+            <Text style={Header.title}>Rental Confirmation</Text>
 
-            <View style={GlobalStyles.container}>
-                {/* still needs reviews, options for pickup date and how long you wanna rent it for*/}
-                <Text>{item.make}</Text>
+            <View style={GlobalStyles.rentalContainer}>
+                <Text style={GlobalStyles.carTitle}>{item.year} {item.make} {item.model}</Text>
+                <Image style={GlobalStyles.imageFormatting} source={require('../../../../assets/lada.jpg')}/>
                 <Text>{item.model}</Text>
                 <Text>{JSON.stringify(item.year)}</Text>
                 <Text>{item.car_type}</Text>

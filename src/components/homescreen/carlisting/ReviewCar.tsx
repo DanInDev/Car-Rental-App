@@ -10,7 +10,7 @@ const {item} = route.params;
         <View style={Header.header}>
             <Text style={Header.title}>Leave a review</Text>
 
-             <View style={reviewStyleSheet.outerContainer}>
+             <View style={GlobalStyles.rentalContainer}>
                 <Text style={GlobalStyles.carTitle}>{item.year} {item.make} {item.model}</Text>
                 <Image style={GlobalStyles.imageFormatting} source={require('../../../../assets/lada.jpg')}/>
                 
@@ -49,11 +49,6 @@ const {item} = route.params;
 }
 
 const reviewStyleSheet = StyleSheet.create({
-    outerContainer:{
-        flex: 1,
-        backgroundColor: 'white',
-        padding: 15
-    },
     subtitle:{
       fontWeight: 'bold',
       fontSize: 20  

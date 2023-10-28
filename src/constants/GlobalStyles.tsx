@@ -42,6 +42,12 @@ export const GlobalStyles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     paddingBottom: 10
-  }
+  },
+
+  rentalContainer:{
+    flex: 1,
+    backgroundColor: 'white',
+    padding: 15
+  },
 
 });
