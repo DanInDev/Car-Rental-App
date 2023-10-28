@@ -6,7 +6,7 @@ export const GlobalStyles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#FFFFFF',
         alignItems: 'center',
-        justifyContent: 'center',
+        paddingTop: 50,
     }, 
     input: {
         borderWidth: 1,

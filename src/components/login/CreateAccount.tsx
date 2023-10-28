@@ -12,15 +12,20 @@ export default function CreateAccount() {
         
         <View style={GlobalStyles.container}>
           <Text style={{fontWeight: 'bold'}}>Email</Text>
-            <TextInput style={GlobalStyles.input}/>
-            <Text style={{fontWeight: 'bold'}}>Username</Text>
-            <TextInput style={GlobalStyles.input}/>
-            <Text style={{fontWeight: 'bold'}}>Password</Text>
-            <TextInput secureTextEntry={true} style={GlobalStyles.input}/>
-            <Text style={{fontWeight: 'bold'}}>Repeat password</Text>
-            <TextInput secureTextEntry={true} style={GlobalStyles.input}/>
+          <TextInput style={GlobalStyles.input}/>
+          
+          <Text style={{fontWeight: 'bold'}}>Username</Text>
+          <TextInput style={GlobalStyles.input}/>
+          
+          <Text style={{fontWeight: 'bold'}}>Password</Text>
+          <TextInput secureTextEntry={true} style={GlobalStyles.input}/>
+          
+          <Text style={{fontWeight: 'bold'}}>Repeat password</Text>
+          <TextInput secureTextEntry={true} style={GlobalStyles.input}/>
 
-            <Button title="Create Account" onPress={() => navigation.navigate("TabNav")} />
+          <Text> </Text>
+
+          <Button title="Create Account" onPress={() => navigation.navigate("TabNav")} />
         </View>
     </View>
   );

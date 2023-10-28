@@ -14,8 +14,10 @@ export default function LoginPage() {
           <View style={GlobalStyles.container}>
               <Text style={{fontWeight: 'bold'}}>Username</Text>
               <TextInput style={GlobalStyles.input}/>
+              
               <Text style={{fontWeight: 'bold'}}>Password</Text>
               <TextInput secureTextEntry={true} style={GlobalStyles.input}/>
+              
               <Button title="Login" onPress={() => navigation.navigate("TabNav")} />
 
               <Text style={{fontWeight: 'bold'}}>{"\n\n"}Not a user?</Text>

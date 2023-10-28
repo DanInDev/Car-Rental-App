@@ -33,7 +33,7 @@ const {item} = route.params;
                 
                 <View style={reviewStyleSheet.postReviewContainer}>
                     <Text>Leave your own review below:</Text>
-                    <TextInput placeholder={'Review Title'} style={reviewStyleSheet.listingsInput}/>
+                    <TextInput placeholder={'Review Title'} style={GlobalStyles.listingsInput}/>
                     <TextInput 
                         multiline={true}
                         numberOfLines={4}
@@ -67,7 +67,7 @@ const reviewStyleSheet = StyleSheet.create({
         fontWeight: 'bold'
     },
     postReviewContainer: {
-        marginTop: 40,
+        marginTop: 50,
         display: 'flex',
         alignItems: "flex-start",
     },

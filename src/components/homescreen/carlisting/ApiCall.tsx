@@ -106,7 +106,7 @@ export default function ApiCall(){
             >
                 <View style={carListingSheets.outerModal}>
                     { modelContent && 
-                    <TouchableOpacity onPress={() => closeModal()}>
+                    <TouchableOpacity onPress={() => closeModal()} >
                         <View>
                             <View style={carListingSheets.innerModal}>
                                 <Text style={GlobalStyles.carTitle}>{modelContent.year} {modelContent.make} {modelContent.model}</Text>
