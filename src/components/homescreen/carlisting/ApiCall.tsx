@@ -51,7 +51,10 @@ export default function ApiCall(){
         </View>
     )
 
-
+    const rentalHandler = (content : Car) => (
+        closeModal(),
+        navigation.navigate("RentCar", {item : content})
+    )
 
 
     return (
@@ -82,7 +85,7 @@ export default function ApiCall(){
                         <Text>Price per day: {modelContent.price_per_day} </Text>
                         <Text>{modelContent.location}</Text>
                         <Text>Available: {modelContent.available ? 'Yes' : 'No'}</Text>
-                        <Button title="Rent this shit" onPress={()=> navigation.navigate("RentCar", {item : modelContent})}/>
+                        <Button title="Rent this shit" onPress={()=> rentalHandler(modelContent)}/>
                     </View>
                     }
                     {
