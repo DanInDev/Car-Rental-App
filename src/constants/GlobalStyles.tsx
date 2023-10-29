@@ -26,6 +26,31 @@ export const GlobalStyles = StyleSheet.create({
       margin: 10,
       width: 200,
   },
+ 
+  confirmation: {
+    backgroundColor: '#006400',
+    borderWidth: 1,
+    borderColor: 'black',
+    borderRadius:15,
+    alignItems: 'center',
+    padding: 8,
+    margin: 10,
+    width: 200,
+    height: 60,
+    fontWeight: 'bold',
+},
+
+confirmationText: {
+  color: "#fff",
+  fontSize: 30,
+  textShadowColor: 'black',
+  textShadowRadius: 2,
+  textShadowOffset: { 
+    width: 1,
+    height: 1,
+  },
+  textAlign: 'center',
+},
   button2: {
     backgroundColor: '#00cc66',
     borderWidth: 1,
@@ -71,13 +96,13 @@ export const GlobalStyles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 20,
-    paddingBottom: 10
   },
 
   rentalContainer:{
     flex: 1,
     backgroundColor: "white",
-    padding: 15
+    padding: 15,
+    alignItems: "center",
   },
 
   listingsInput: {

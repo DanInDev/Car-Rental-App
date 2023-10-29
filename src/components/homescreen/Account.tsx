@@ -46,6 +46,9 @@ export default function Account() {
 
 
           <View style={accountStyle.signOutButton}>
+          <TouchableOpacity style={GlobalStyles.confirmation} onPress={() => navigation.navigate("Account")}>
+                    <Text style={GlobalStyles.confirmationText}>CONFIRM</Text>
+                </TouchableOpacity>
             <Button title="Sign out" onPress={() => navigation.navigate("Splash")}/>
           </View>
           

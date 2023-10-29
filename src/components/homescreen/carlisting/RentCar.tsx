@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Text, View, Image, TextInput} from "react-native";
+import {Button, Text, View, Image, TextInput, TouchableOpacity} from "react-native";
 import { GlobalStyles } from "../../../constants/GlobalStyles";
 import { Header } from "../../../constants/Header";
 import { useNavigation } from "@react-navigation/native";
@@ -30,7 +30,10 @@ const navigation = useNavigation();
                 
                 <Text>{"\n"}Click the button below to confirm your car rental:</Text>
                 {/*Make this navigation redirect to the "View Rental History" page, when it is made*/}
-                <Button title="Confirm Car Rental!" onPress={()=> navigation.navigate("Account")}/>
+                <TouchableOpacity style={GlobalStyles.confirmation} onPress={() => navigation.navigate("Account")}>
+                    <Text style={GlobalStyles.confirmationText}>CONFIRM</Text>
+                </TouchableOpacity>
+
             </View>
         </View>
         
