@@ -1,4 +1,4 @@
-import { Button, Text, View, TextInput } from 'react-native';
+import { Button, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { GlobalStyles } from '../../constants/GlobalStyles';
 import { useNavigation } from '@react-navigation/native';
 import { Header } from '../../constants/Header';
@@ -25,7 +25,12 @@ export default function CreateAccount() {
 
           <Text> </Text>
 
-          <Button title="Create Account" onPress={() => navigation.navigate("TabNav")} />
+          <TouchableOpacity
+            style={GlobalStyles.button}
+            onPress={() => navigation.navigate('TabNav')}
+          >
+            <Text style={GlobalStyles.buttonText}>Create Account</Text>
+          </TouchableOpacity>
         </View>
     </View>
   );

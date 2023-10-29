@@ -14,7 +14,7 @@ const {item} = route.params;
                 <Text style={GlobalStyles.carTitle}>{item.year} {item.make} {item.model}</Text>
                 <Image style={GlobalStyles.imageFormatting} source={require('../../../../assets/lada.jpg')}/>
                 
-                <Text style={reviewStyleSheet.subtitle}>Previous rentoids said the following:</Text>
+                <Text style={reviewStyleSheet.subtitle}>Previous renters said the following:</Text>
                 
                 <View style={reviewStyleSheet.reviewContainer}>
                     <Text style={reviewStyleSheet.reviewTitle}>Best car in the buisness</Text>
@@ -60,7 +60,8 @@ const reviewStyleSheet = StyleSheet.create({
         borderColor: "rgba(0,0,0,0.0)",
         overflow: "hidden",
         elevation: 4,
-        shadowColor: 'black'
+        shadowColor: 'black',
+        width: "92%"
     },
     reviewTitle:{
         fontSize: 16,
@@ -68,6 +69,7 @@ const reviewStyleSheet = StyleSheet.create({
     },
     postReviewContainer: {
         marginTop: 50,
+        width: "92%",
         display: 'flex',
         alignItems: "flex-start",
     },

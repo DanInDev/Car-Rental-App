@@ -109,7 +109,7 @@ confirmationText: {
     borderWidth: 1,
     borderColor: '#777',
     paddingLeft: 6,
-    width: '100%',
+    width: "100%",
     marginVertical: 4
 }
 

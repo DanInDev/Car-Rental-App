@@ -20,7 +20,6 @@ export default function StackNav() {
             <Stack.Screen name="TabNav" component={TabNav}/>
             <Stack.Screen name="RentCar" component={RentCar}/>
             <Stack.Screen name="ReviewCar" component={ReviewCar}/>
-            <Stack.Screen name="Account" component={Account}/>
         </Stack.Navigator>
     </NavigationContainer>
     );

@@ -46,16 +46,20 @@ export default function Account() {
           </TouchableOpacity>
 
 
-          <View style={accountStyle.signOutButton}>
-          <TouchableOpacity style={GlobalStyles.confirmation} onPress={() => navigation.navigate("Account")}>
-                    <Text style={GlobalStyles.confirmationText}>CONFIRM</Text>
-                </TouchableOpacity>
-            <Button title="Sign out" onPress={() => navigation.navigate("Splash")}/>
-          </View>
+          <TouchableOpacity 
+            onPress={() => navigation.navigate("Splash")}
+            style={GlobalStyles.button}>              
+            <Text style={GlobalStyles.buttonText}>Sign out</Text>
+          </TouchableOpacity>
           
           <View style={accountStyle.TerminateAccountButton}>
-            <Button title="Terminate account" onPress={() => console.log("account terminated")} />
+            <TouchableOpacity 
+              onPress={() => console.log("Account terminated")}
+              style={GlobalStyles.button}>              
+              <Text style={GlobalStyles.buttonText}>Terminate Account</Text>
+            </TouchableOpacity>
           </View>
+          
           
         </View>
 
@@ -92,7 +96,8 @@ const accountStyle = StyleSheet.create({
       alignItems: 'flex-start'
   },
   TerminateAccountButton: {
-    marginTop: 'auto'
+    marginTop: 'auto',
+    alignItems: 'center'
   }
 })
 
