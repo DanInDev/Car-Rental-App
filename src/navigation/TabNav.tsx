@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CarListings from '../components/homescreen/carlisting/CarListings';
 import Account from '../components/homescreen/Account';
 import Settings from '../components/homescreen/Settings';
-import { Image } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 
 export default function TabNav() {
   const Tab = createBottomTabNavigator();
@@ -23,7 +23,7 @@ export default function TabNav() {
           tabBarIcon: ({ color, size }) => (
             <Image
               source={require('../../assets/settingsLogo.png')}
-              style={{ width: 30, height: 30, tintColor: color }}
+              style={tabStyle.tabImage}
             />
           ),
         }}
@@ -35,7 +35,7 @@ export default function TabNav() {
           tabBarIcon: ({ color, size }) => (
             <Image
               source={require('../../assets/car-icon.png')}
-              style={{ width: 30, height: 30 }}
+              style={tabStyle.tabImage}
             />
           ),
         }}
@@ -47,7 +47,7 @@ export default function TabNav() {
           tabBarIcon: ({ color, size }) => (
             <Image
               source={require('../../assets/accountLogo.png')}
-              style={{ width: 30, height: 30 }}
+              style={tabStyle.tabImage}
             />
           ),
         }}
@@ -55,3 +55,10 @@ export default function TabNav() {
     </Tab.Navigator>
   );
 }
+
+const tabStyle = StyleSheet.create ({
+  tabImage: {
+      width: 30,
+      height: 30
+  }
+})
