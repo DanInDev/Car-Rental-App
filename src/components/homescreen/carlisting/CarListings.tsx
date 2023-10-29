@@ -8,10 +8,9 @@ export default function CarListings() {
     return (
       <View style={Header.header}>
         <Text style={Header.title}>Car Listings</Text>
- 
               <ApiCall/>
-
       </View>
+      
     );
 }
 

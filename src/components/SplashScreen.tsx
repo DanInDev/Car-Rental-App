@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Animated, TouchableOpacity } from 'react-native';
+import { GlobalStyles } from '../constants/GlobalStyles';
+import { View, Text, StyleSheet, Animated, TouchableOpacity, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const SplashScreen = () => {
+  const backgroundImage = require('../../assets/splashPicture.png'); 
+  const logoImage = require('../../assets/logo.png'); 
+
   const navigation = useNavigation();
   const [animation] = useState(new Animated.Value(0));
 
@@ -23,57 +27,90 @@ const SplashScreen = () => {
 
   return (
     <View style={splashStyles.container}>
+    <ImageBackground source={backgroundImage} style={splashStyles.backgroundStyles}>
       <Animated.View style={[splashStyles.animatedContainer, animatedStyles]}>
+      
+      <ImageBackground source={logoImage} style= {[splashStyles.logo]}>
+        </ImageBackground>
+
         <Text style={splashStyles.title}>Welcome to</Text>
         <Text style={splashStyles.subtitle}>Peter's Car Rental</Text>
+        
         <TouchableOpacity
-          style={splashStyles.button}
+          style={GlobalStyles.button}
           onPress={() => navigation.navigate('LoginPage')}
         >
-          <Text style={splashStyles.buttonText}>Login</Text>
+          <Text style={GlobalStyles.buttonText}>Login</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={splashStyles.button}
+          style={GlobalStyles.button}
           onPress={() => navigation.navigate('TabNav')}
         >
-          <Text style={splashStyles.buttonText}>Home</Text>
+          <Text style={GlobalStyles.buttonText}>Home</Text>
         </TouchableOpacity>
       </Animated.View>
-    </View>
+    </ImageBackground>
+  </View>
+  
   );
 };
 
 const splashStyles = StyleSheet.create({
+
+  backgroundStyles: {
+    resizeMode: 'cover',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    height: '100%',
+  },
+  
+  logo: {
+    width: 205,
+    height: 200,
+    marginBottom: 200, // Adjust the margin as needed
+  },
+  
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#808080',
   },
+  
   animatedContainer: {
     alignItems: 'center',
   },
+  
   title: {
+    color: "white",
     fontWeight: 'bold',
     fontSize: 25,
     marginBottom: 10,
+    textShadowColor: 'black',
+    textShadowRadius: 2,
+    textShadowOffset: {
+      width: 1,
+      height: 1,
+    },
   },
+  
   subtitle: {
-    fontWeight: 'bold',
+    fontFamily: "Roboto",
+    color: "white",
+    fontWeight: "bold",
     fontSize: 40,
-    marginBottom: 20,
+    marginBottom: 10, // Adjust the margin as needed
+    textShadowColor: 'black',
+    textShadowRadius: 2,
+    textShadowOffset: {
+      width: 4,
+      height: 4,
+    },
   },
-  button: {
-    backgroundColor: 'red',
-    padding: 10,
-    borderRadius: 20,
-    marginBottom: 10,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-    textAlign: 'center',
-  },
+  
+  
 });
 
 export default SplashScreen;

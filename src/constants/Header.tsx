@@ -5,14 +5,20 @@ export const Header = StyleSheet.create({
         flex: 1,
         height: 80,
         allignItems: 'center',
-        backgroundColor: '#808080',
+        backgroundColor: '#006400',
     },
     title: {
         fontWeight: 'bold',
         textAlign: 'center',
         alignContent: 'center',
+        color:"white",
         paddingTop: 10,
         paddingBottom: 10,
-        fontSize: 30
-    }
+        fontSize: 30,
+        textShadowRadius: 2,
+        textShadowOffset: {
+        width: 1,
+        height: 1,
+        },
+    },
 })
