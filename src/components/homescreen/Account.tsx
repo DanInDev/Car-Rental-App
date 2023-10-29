@@ -1,6 +1,7 @@
 import { Button, Text, View, StyleSheet, Image, TouchableOpacity, Alert } from 'react-native';
 import { Header } from '../../constants/Header';
 import { useNavigation } from '@react-navigation/native';
+import { GlobalStyles } from '../../constants/GlobalStyles';
 
 
 export default function Account() {
