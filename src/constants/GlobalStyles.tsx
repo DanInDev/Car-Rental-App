@@ -17,7 +17,7 @@ export const GlobalStyles = StyleSheet.create({
     },
 
     button: {
-      backgroundColor: '#006400',
+      backgroundColor: '#1857CB',
       borderWidth: 1,
       borderColor: 'black',
       borderRadius:15,
@@ -28,7 +28,7 @@ export const GlobalStyles = StyleSheet.create({
   },
  
   confirmation: {
-    backgroundColor: '#006400',
+    backgroundColor: '#1857CB',
     borderWidth: 1,
     borderColor: 'black',
     borderRadius:15,
@@ -52,7 +52,7 @@ confirmationText: {
   textAlign: 'center',
 },
   button2: {
-    backgroundColor: '#00cc66',
+    backgroundColor: '#96cbfc',
     borderWidth: 1,
     borderColor: 'black',
     borderRadius:15,

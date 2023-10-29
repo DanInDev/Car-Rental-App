@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Text, View, Image, StyleSheet, TextInput} from "react-native";
+import {Button, Text, View, Image, StyleSheet, TextInput, TouchableOpacity} from "react-native";
 import { GlobalStyles } from "../../../constants/GlobalStyles";
 import { Header } from "../../../constants/Header";
 
@@ -38,9 +38,12 @@ const {item} = route.params;
                         multiline={true}
                         numberOfLines={4}
                         placeholder={'Review'}
-                        style={GlobalStyles.listingsInput}/>
-                    <Button title="Post review!" onPress={()=> console.log("Review submitted")}/>
+                        style={GlobalStyles.listingsInput}/>  
+
                 </View>
+                <TouchableOpacity style={GlobalStyles.button} onPress={()=> console.log("Review submitted")}>
+                        <Text style={GlobalStyles.buttonText}>Post review</Text>
+                </TouchableOpacity>
                 
             </View>
         </View>

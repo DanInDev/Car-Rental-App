@@ -124,7 +124,7 @@ export default function ApiCall(){
 
     <View style={{ paddingBottom: 6 }} />{/*Spacing*/}
 
-    <TouchableOpacity style={GlobalStyles.confirmation} onPress={() => rentalHandler(modelContent)}>
+    <TouchableOpacity style={GlobalStyles.button} onPress={() => rentalHandler(modelContent)}>
       <Text style={GlobalStyles.confirmationText}>RENT</Text>
     </TouchableOpacity>
   </View>

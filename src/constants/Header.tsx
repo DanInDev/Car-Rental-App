@@ -5,7 +5,7 @@ export const Header = StyleSheet.create({
         flex: 1,
         height: 80,
         allignItems: 'center',
-        backgroundColor: '#006400',
+        backgroundColor: '#1857CB',
     },
     title: {
         fontWeight: 'bold',
