@@ -19,7 +19,7 @@ export default function ApiCall(){
 
     const [car, setCar] = useState<Car[] | undefined>();
     const [error, setError] = useState(false);
-    const [modelContent, setModalContent] = useState<Car | undefined>();
+    const [modalContent, setModalContent] = useState<Car | undefined>();
     const[modalVisible, setModalVisible] = useState(false);
 
     const openModal = (content : Car) => {
@@ -105,36 +105,36 @@ export default function ApiCall(){
             transparent={true}
             >
                 <View style={carListingSheets.outerModal}>
-                    { modelContent && 
+                    { modalContent && 
                     <TouchableOpacity onPress={() => closeModal()} >
-                 <View>
-  <View style={carListingSheets.innerModal}>
-        <Text style={GlobalStyles.carTitle}>{modelContent.year} {modelContent.make} {modelContent.model}</Text>
+                        <View>
+                            <View style={carListingSheets.innerModal}>
+                                <Text style={GlobalStyles.carTitle}>{modalContent.year} {modalContent.make} {modalContent.model}</Text>
 
-    <Image style={GlobalStyles.imageFormatting} source={require('../../../../assets/lada.jpg')}/>
-    
-    <Text>Car type: {modelContent.car_type}</Text>
-    <Text>Price per day: {modelContent.price_per_day}€</Text>
-    <Text>Currently located in: {modelContent.location}</Text>
-    <Text style={{paddingBottom: 6}}>Available: {modelContent.available ? 'Yes' : 'No'}</Text>
+                                <Image style={GlobalStyles.imageFormatting} source={require('../../../../assets/lada.jpg')}/>
+                                
+                                <Text>Car type: {modalContent.car_type}</Text>
+                                <Text>Price per day: {modalContent.price_per_day}€</Text>
+                                <Text>Currently located in: {modalContent.location}</Text>
+                                <Text style={{paddingBottom: 6}}>Available: {modalContent.available ? 'Yes' : 'No'}</Text>
 
-    <TouchableOpacity style={GlobalStyles.button2} onPress={() => reviewHandler(modelContent)}>
-      <Text style={GlobalStyles.buttonText}>Leave a review</Text>
-    </TouchableOpacity>
+                                <TouchableOpacity style={GlobalStyles.button2} onPress={() => reviewHandler(modalContent)}>
+                                    <Text style={GlobalStyles.buttonText}>Leave a review</Text>
+                                </TouchableOpacity>
 
-    <View style={{ paddingBottom: 6 }} />{/*Spacing*/}
+                                <View style={{ paddingBottom: 6 }} />{/*Spacing*/}
 
-    <TouchableOpacity style={GlobalStyles.button} onPress={() => rentalHandler(modelContent)}>
-      <Text style={GlobalStyles.confirmationText}>RENT</Text>
-    </TouchableOpacity>
-  </View>
-</View>
+                                <TouchableOpacity style={GlobalStyles.button} onPress={() => rentalHandler(modalContent)}>
+                                    <Text style={GlobalStyles.confirmationText}>RENT</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
 
                     </TouchableOpacity>
                     
                     }
                     {
-                    !modelContent && <Text>Failed to load</Text>
+                    !modalContent && <Text>Failed to load</Text>
                     }
                 </View>
             </Modal>
